@@ -15,13 +15,6 @@
   </a>
 </p>
 
-**Zixuan Wang<sup>1,2,*</sup> · Jia-Ning Li<sup>4</sup> · Yinzhou Tang<sup>3</sup> · Yanzhao Yu<sup>4</sup> · Biao Wu<sup>5</sup> · Meng Fang<sup>6</sup> · Xin Li<sup>3</sup> · Yiwu Zhong<sup>1,2,†</sup>**
-
-<sub><sup>1</sup> School of Intelligence Science and Technology, Peking University &nbsp; · &nbsp; <sup>2</sup> State Key Laboratory of General Artificial Intelligence, Peking University</sub><br>
-<sub><sup>3</sup> Alibaba DAMO Academy, Alibaba Group &nbsp; · &nbsp; <sup>4</sup> Tsinghua University</sub><br>
-<sub><sup>5</sup> University of Technology Sydney &nbsp; · &nbsp; <sup>6</sup> University of Liverpool</sub><br>
-<sub><sup>*</sup> Work done during internship at Alibaba Group. &nbsp; <sup>†</sup> Corresponding author.</sub>
-
 </div>
 
 ---
