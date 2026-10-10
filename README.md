@@ -10,9 +10,6 @@
   <a href="./paper.pdf">
     <img alt="Draft Preprint PDF" src="https://img.shields.io/badge/Paper-Draft%20Preprint%20PDF-b31b1b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white">
   </a>
-  <a href="#-benchmarks--evaluation">
-    <img alt="Benchmarks" src="https://img.shields.io/badge/Benchmarks-RoboCasa365%20%7C%20BEHAVIOR--1K-4c8bf5?style=for-the-badge">
-  </a>
   <a href="#-release-status">
     <img alt="Code coming soon" src="https://img.shields.io/badge/Code-Coming%20Soon-f59e0b?style=for-the-badge&logo=github&logoColor=white">
   </a>
