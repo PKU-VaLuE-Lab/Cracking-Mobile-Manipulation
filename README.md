@@ -17,8 +17,6 @@
 
 </div>
 
----
-
 ## 🧭 Release
 
 🚧 **Coming soon.** We plan to release the following components:
@@ -31,26 +29,19 @@
 - [ ] **Setup and reproduction guide** — Environment setup and instructions for running the released components.
 
 
-
----
-
 ## Overview
 
-Vision-language-action (VLA) policies can execute local manipulation skills, but coordinating those skills across changing viewpoints, robot base poses, and multiple workspaces remains challenging. In our evaluation, a pretrained subtask VLA reaches **80%** success on atomic RoboCasa365 tasks, while an agentic system built on that VLA succeeds on only **19%** of long-horizon mobile-manipulation episodes.
-
-We study **where** failures occur and use that diagnosis to decide **which capabilities to add**. Our failure-guided agentic framework augments a fixed subtask VLA with planning guidance, selective visual recall, and geometric corrections. **The low-level subtask VLA is not changed during the RoboCasa365 intervention experiments.**
+Vision-language-action (VLA) models can execute local manipulation task, but coordinating those skills across changing viewpoints, robot base poses, and multiple workspaces remains challenging. In our evaluation, a pretrained subtask VLA reaches **80%** success on atomic RoboCasa365 tasks, while an agentic system built on that VLA succeeds on only **19%** of long-horizon mobile-manipulation episodes. We study **where** failures occur and use that diagnosis to decide **which capabilities to add**. Our failure-guided agentic framework augments a fixed subtask VLA with in-context planning guidance, adaptive visual recall, and geometric adjustment.
 
 <p align="center">
   <img src="./assets/overview.png" alt="Mobile manipulation success gap, failure attribution, and targeted interventions" width="94%">
 </p>
 
-> **TL;DR.** Diagnosing failures and introducing targeted interventions improves RoboCasa365 task success from **19% → 47%** on development episodes and **18% → 49%** on separate held-out episode seeds. We also observe gains on **BEHAVIOR-1K** and a **real dual-arm mobile robot**. As earlier bottlenecks are reduced, failures increasingly reach the manipulation stage.
-
 **Main contributions**
 
-- 🔎 **Failure diagnosis.** A stage-wise attribution of long-horizon failures to task planning, navigation and base positioning, and local manipulation.
-- 🧩 **Failure-guided intervention.** A skill library, adaptive visual memory, accessibility-aware base adjustment, and local end-effector adjustment are integrated around a fixed subtask VLA.
-- 📈 **Evaluation and failure transitions.** Controlled, paired development evaluations, separate held-out episodes, and transfer studies show how addressing one bottleneck can expose the next.
+- 🔎 **A systematic failure diagnosis of mobile manipulation.** We analyze the gap between strong subtask-level manipulation and long-horizon mobile manipulation, identifying three dominant failure regimes: task planning, navigation and base positioning, and local manipulation. The analysis turns overall success gap into a concrete, stage-wise failure structure.
+- 🧩 **A failure-guided agentic intervention framework.** Based on the diagnosed bottlenecks, we introduce targeted interventions around a fixed subtask VLA, including demonstration-based planning guidance, adaptive visual memory, accessibility-aware base adjustment, and local end-effector adjustment. 
+- 📈 **Agentic intervention consistently improves the performance of mobile manipulation.** The proposed interventions improve the success rate from 19.0\% to 47.0\% on RoboCasa365. Our experiments further demonstrate consistent gains on held-out RoboCasa365 episodes, BEHAVIOR-1K tasks, and a real dual-arm mobile manipulator. 
 
 ---
 
