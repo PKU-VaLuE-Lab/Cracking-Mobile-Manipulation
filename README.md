@@ -160,6 +160,3 @@ If you find this project useful, please cite:
 
 Our experiments build on open research infrastructure including **RoboCasa365**, **BEHAVIOR-1K**, and pretrained **vision-language-action** policies. The agentic baseline is adapted from **Harness VLA**. We thank the authors and maintainers of the tools and benchmarks that support mobile manipulation research; please see the [paper](./paper.pdf) for detailed references.
 
-## 📄 License
-
-**Code, data, and model license terms will be provided when the corresponding artifacts are released.** The presence of the paper and figures in this repository does not imply that unreleased code, training data, or checkpoints are available for use.
