@@ -8,7 +8,7 @@
 
 <p>
   <a href="./paper.pdf">
-    <img alt="Draft Preprint PDF" src="https://img.shields.io/badge/Paper-Draft%20Preprint%20PDF-b31b1b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white">
+    <img alt="Preprint PDF" src="https://img.shields.io/badge/Paper-Draft%20Preprint%20PDF-b31b1b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white">
   </a>
   <a href="#-release-status">
     <img alt="Code coming soon" src="https://img.shields.io/badge/Code-Coming%20Soon-f59e0b?style=for-the-badge&logo=github&logoColor=white">
@@ -19,14 +19,22 @@
 
 ---
 
-## 📰 News
+## 🧭 Release
 
-- **`2026-10`** 📄 The project overview, paper figures, and a [draft preprint PDF](./paper.pdf) are prepared for release.
-- **`Coming Soon`** 🚀 Code, prompts, configurations, and evaluation materials are planned for release. **There are no downloadable models or runnable pipelines in this repository yet.**
+🚧 **Coming soon.** We plan to release the following components:
+
+- [ ] **Subtask VLA training code** — Training scripts and configurations for subtask vla.
+- [ ] **Subtask VLA evaluation** — Evaluation scripts and benchmark configurations for subtask vla.
+- [ ] **Subtask VLA checkpoint** 
+- [ ] **Agentic robot system** — High-level planner, skill library, adaptive visual memory, and geometric adjustment tools.
+- [ ] **System evaluation** — Task definitions, evaluation scripts, and episode seeds for long-horizon mobile manipulation.
+- [ ] **Setup and reproduction guide** — Environment setup and instructions for running the released components.
+
+
 
 ---
 
-## 🧭 Overview
+## Overview
 
 Vision-language-action (VLA) policies can execute local manipulation skills, but coordinating those skills across changing viewpoints, robot base poses, and multiple workspaces remains challenging. In our evaluation, a pretrained subtask VLA reaches **80%** success on atomic RoboCasa365 tasks, while an agentic system built on that VLA succeeds on only **19%** of long-horizon mobile-manipulation episodes.
 
