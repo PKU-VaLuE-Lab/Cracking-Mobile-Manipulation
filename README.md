@@ -140,29 +140,10 @@ As planning and base-positioning failures are addressed, more episodes reach lat
   <img src="./assets/failure_distribution.png" alt="Failure counts for navigation and base positioning, planning, manipulation, and overall failures across the progressive system" width="83%">
 </p>
 
----
-
-## 📦 Release Status
-
-**Code, model-related artifacts, and reproducibility materials are not publicly released yet.** The repository currently contains project documentation, paper figures, and a preprint PDF. The planned release is:
-
-| Component | Status |
-|:--|:--|
-| Agentic planner / framework orchestration | 🕓 **Coming Soon** |
-| Skill library construction and planning prompts | 🕓 **Coming Soon** |
-| Adaptive visual memory implementation | 🕓 **Coming Soon** |
-| Accessibility checks and geometric adjustment skills | 🕓 **Coming Soon** |
-| RoboCasa365 task list, evaluation scripts, and episode seeds | 🕓 **Coming Soon** |
-| Configuration and reproduction instructions | 🕓 **Coming Soon** |
-| Model checkpoints and redistribution terms | **To be announced** |
-
-There are **no working installation instructions or download links at present**. Release scope and licensing will be confirmed with the corresponding artifacts.
-
----
 
 ## 📚 Citation
 
-If you use or build upon this work, please cite the preprint. The entry below deliberately has **no arXiv ID, DOI, or conference venue** until a public identifier is available.
+If you find this project useful, please cite:
 
 ```bibtex
 @misc{wang2026crackingmobilemanipulation,
