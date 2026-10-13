@@ -33,64 +33,50 @@
 
 Vision-language-action (VLA) models can execute local manipulation task, but coordinating those skills across changing viewpoints, robot base poses, and multiple workspaces remains challenging. In our evaluation, a pretrained subtask VLA reaches **80%** success on atomic RoboCasa365 tasks, while an agentic system built on that VLA succeeds on only **19%** of long-horizon mobile-manipulation episodes. We study **where** failures occur and use that diagnosis to decide **which capabilities to add**. Our failure-guided agentic framework augments a fixed subtask VLA with in-context planning guidance, adaptive visual recall, and geometric adjustment.
 
-<p align="center">
-  <img src="./assets/overview.png" alt="Mobile manipulation success gap, failure attribution, and targeted interventions" width="94%">
-</p>
-
 **Main contributions**
 
 - 🔎 **A systematic failure diagnosis of mobile manipulation.** We analyze the gap between strong subtask-level manipulation and long-horizon mobile manipulation, identifying three dominant failure regimes: task planning, navigation and base positioning, and local manipulation. The analysis turns overall success gap into a concrete, stage-wise failure structure.
 - 🧩 **A failure-guided agentic intervention framework.** Based on the diagnosed bottlenecks, we introduce targeted interventions around a fixed subtask VLA, including demonstration-based planning guidance, adaptive visual memory, accessibility-aware base adjustment, and local end-effector adjustment. 
 - 📈 **Agentic intervention consistently improves the performance of mobile manipulation.** The proposed interventions improve the success rate from 19.0\% to 47.0\% on RoboCasa365. Our experiments further demonstrate consistent gains on held-out RoboCasa365 episodes, BEHAVIOR-1K tasks, and a real dual-arm mobile manipulator. 
 
----
+
 
 ## 🔍 Where Does Mobile Manipulation Fail?
 
-We study **20 mobile-manipulation tasks** selected from the **32 composite tasks** in RoboCasa365. The agentic baseline achieves **19/100** successful episodes on the development seeds, leaving **81 baseline failures**. The breakdown below is **the share of those 81 failures**, *not* the percentage of all episodes.
+We study **20 mobile-manipulation tasks** selected from the **composite tasks** in RoboCasa365. The agentic baseline achieves **19/100** successful episodes on the development seeds, leaving **81 baseline failures**. The breakdown below is **the share of those 81 failures**.
 
-| Primary failure type | Baseline failed episodes | Share of baseline failures | Typical symptoms |
-|:--|--:|--:|:--|
-| **Task planning** | 17 | **21.0%** | Wrong target, wrong receptacle, omitted or misordered subtasks |
-| **Navigation & base positioning** | 21 | **25.9%** | Ineffective approach, poor manipulation stance, or navigation issues |
-| **Local manipulation** | 43 | **53.1%** | Placement errors, empty grasps, object drops, or collisions |
-| **Total** | **81** | **100%** | |
+<p align="center">
+  <img src="./baseline_failure.png" alt="Failure attribution of the agentic baseline." width="96%">
+</p>
 
-Our key observation is that **reaching the correct area does not imply being ready to manipulate**. The planner must preserve task progress, the base must reach a usable stance, and the arm must align with the intended interaction.
+**Finding 1**: Task planning fails when task progress is not tracked reliably.
 
----
+**Finding 2**: Reaching the correct workspace does not guarantee a suitable base pose for manipulation.
+
+**Finding 3**: Precise manipulation can still fail after planning and navigation succeed.
+
+
 
 ## 🛠️ Failure-Guided Agentic Framework
 
 <p align="center">
-  <img src="./assets/framework.png" alt="Failure-guided agentic framework with skill library, visual memory, and geometric skills" width="96%">
+  <img src="./framework.png" alt="Overview of the failure-guided agentic system." width="96%">
 </p>
 
-The framework has four complementary intervention groups:
+Guided by the above failure analysis, we keep the subtask VLA fixed and add failure-guided interventions at the bottlenecks. These interventions provide demonstration-based planning guidance, adaptive visual memory, an accessibility check with base adjustment, and local end-effector adjustment. 
 
-1. **Skill library from demonstrations.** Demonstration videos from the training split are distilled into concise skill cards with a task goal, ordered subtasks, representative keyframes, and completion criteria. The high-level planner consults the relevant card to guide its next decision.
-2. **Adaptive visual memory.** When the planner needs missing historical context, a visual retrieval model finds relevant earlier observations from the *current episode*. The method retrieves the **top 16 frames**, without access to future observations.
-3. **Accessibility check and base adjustment.** RGB-D visual grounding estimates the target location. An accessibility check categorizes the current stance as *reachable*, *marginal*, or *out of reach*. The system performs a small base correction or plans a new stance as appropriate; this is a coarse accessibility check, not a full inverse-kinematics or collision-feasibility guarantee.
-4. **End-effector adjustment.** Local target grounding and 3D geometric estimation guide bounded corrections for grasping and placement, complementing rather than replacing the subtask VLA.
-
-The resulting system targets the failure stage that currently prevents task completion, instead of uniformly scaling or retraining the underlying RoboCasa365 policy.
-
----
 
 ## 🧪 Benchmarks & Evaluation
 
 | Setting | Evaluation protocol | Purpose |
 |:--|:--|:--|
 | **RoboCasa365 — development** | 20 mobile-manipulation tasks × 5 matched episodes = **100 trials** | Failure diagnosis and progressive integration |
-| **RoboCasa365 — held-out** | Same 20 tasks × 5 **separate seeds** = **100 trials** | Evaluate the finalized design on different initial conditions |
-| **BEHAVIOR-1K** | 5 long-horizon tasks, **100 trials** | Evaluate transfer of the intervention design |
-| **Real robot** | Astribot-S1, 2 tasks × 10 trials = **20 trials** | Test closed-loop task completion on hardware |
+| **RoboCasa365 — held-out** | Same 20 tasks × 5 **separate seeds** = **100 trials** | Evaluate the finalized design on different initial scene |
+| **BEHAVIOR-1K** | 5 long-horizon tasks, **100 trials** | Evaluate transfer of the agentic system design |
+| **Real robot** | Astribot-S1, 2 tasks × 10 trials = **20 trials** | Test closed-loop task completion on real-robot |
 
-**Important evaluation distinction:** For RoboCasa365, the agentic configurations share a fixed subtask VLA; the high-level planner and agentic intervention design are varied. For BEHAVIOR-1K and real-robot evaluation, the respective low-level policies are trained or fine-tuned for those domains. These studies test **transfer of the intervention design**, not zero-shot transfer of a single VLA checkpoint.
 
----
-
-## 📊 Headline Results
+## 📊 Results
 
 ### Progressive integration on RoboCasa365
 
