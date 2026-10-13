@@ -90,11 +90,6 @@ Each row **adds one component** to the configuration directly above it; all conf
 | + Accessibility-aware base adjustment | 40 | 40% |
 | **+ Local end-effector adjustment (full system)** | **47** | **47%** |
 
-<p align="center">
-  <img src="./assets/progressive_integration.png" alt="Progressive integration improves success from 19 to 47 percent" width="78%">
-</p>
-
-The largest incremental improvement occurs after **base adjustment (29% → 40%)**, emphasizing the importance of positioning the base for manipulation.
 
 ### Development and held-out performance
 
@@ -103,7 +98,7 @@ The largest incremental improvement occurs after **base adjustment (29% → 40%)
 | Agentic baseline (adapted from Harness VLA) | 19 | 18 |
 | **Ours — full system** | **47** | **49** |
 
-The held-out evaluation is conducted only after fixing the system design, prompts, and tool parameters. Its matched comparison shows **18% → 49%** success on different scene and object initializations.
+The held-out evaluation is conducted only after fixing the system design, prompts, and tool parameters. Its matched comparison shows **18% → 49%** success rate on different scene and object initializations.
 
 ### Transfer beyond RoboCasa365
 
@@ -115,15 +110,7 @@ The held-out evaluation is conducted only after fixing the system design, prompt
 On the real robot, the two tasks are **Storage Box Transport** (2/10 → 6/10) and **Table Service** (3/10 → 7/10). A representative Table Service rollout is shown below.
 
 <p align="center">
-  <img src="./assets/real_robot.png" alt="Representative real-robot Table Service rollout on Astribot-S1" width="94%">
-</p>
-
-### The remaining failure frontier shifts
-
-As planning and base-positioning failures are addressed, more episodes reach later manipulation stages. The remaining failures increasingly involve placement errors, object drops during transport, and collision-induced scene disruption. This does **not** mean manipulation necessarily deteriorated; the set of episodes reaching manipulation has changed.
-
-<p align="center">
-  <img src="./assets/failure_distribution.png" alt="Failure counts for navigation and base positioning, planning, manipulation, and overall failures across the progressive system" width="83%">
+  <img src="./real_robot.png" alt="Representative real-robot Table Service rollout on Astribot-S1" width="94%">
 </p>
 
 
