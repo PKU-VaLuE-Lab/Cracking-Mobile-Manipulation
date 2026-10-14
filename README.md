@@ -127,8 +127,6 @@ If you find this project useful, please cite:
 }
 ```
 
----
-
 ## 🙏 Acknowledgements
 
 Our experiments build on open research infrastructure including **RoboCasa365**, **BEHAVIOR-1K**, **Harness VLA** and **StarVLA**. We thank the authors and maintainers of the tools and benchmarks that support mobile manipulation research. 
