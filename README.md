@@ -7,7 +7,7 @@
 **Why do strong local manipulation policies fail when deployed in long-horizon mobile manipulation, and which interventions help most?**
 
 <p>
-  <a href="./paper.pdf">
+  <a href="./Cracking_Mobile_Manipulation__From_Failure_Diagnosis_to_Agentic_Robot_System.pdf">
     <img alt="Preprint PDF" src="https://img.shields.io/badge/Paper-Preprint%20PDF-b31b1b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white">
   </a>
   <a href="#-release-status">
